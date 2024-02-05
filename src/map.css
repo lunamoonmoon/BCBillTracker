@@ -1,11 +1,12 @@
-body {
-  margin: 0;
-  padding: 0;
+.map {
+  font-family: sans-serif;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
-#map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+.mapContainer {
+  height: 50em;
+  width: 50em;
 }

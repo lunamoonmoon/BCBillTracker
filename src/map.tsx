@@ -1,28 +1,23 @@
-import './App.css';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-
-const position: [number, number] = [51.505, -0.09];
-
-const customIcon = new L.icon({
-  iconUrl: require('./public/'),
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popAnchor: [0, -32],
-});
+import './map.css';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 
 export default function App() {
+
+  const defaultLocation: [number, number] = [48.4284, -123.3656];
+
   return (
-    <div id="map">
-      <MapContainer center={position} zoom={13} style={{ height: '100vh', width: '100%' }}>
+    <div className='map'>
+      <MapContainer
+        className='mapContainer'
+        center={defaultLocation}
+        zoom={13}
+        scrollWheelZoom={false}
+      >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position} icon={customIcon}>
-        </Marker>
       </MapContainer>
     </div>
-  )
-}
+  );
+};
